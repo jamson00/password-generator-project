@@ -19,6 +19,16 @@ function writePassword() {
 
 }
 
+function generatePassword(){
+
+  console.log("hey nice click")
+
+  var password = "";
+  for(var i = 0; i < characterLength; i++)
+    var randomIndex = Math.floor(Math.random() * choiceArr.length)
+    password += choiceArr[randomIndex]
+    return password;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
