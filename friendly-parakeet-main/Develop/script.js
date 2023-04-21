@@ -12,8 +12,14 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  var completePrompt = getPrompts()
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+
+  if(completePrompt){
+    var newPassword = generatePassword();
+    passwordText.value = newPassword
+  }
 
   passwordText.value = password;
 
@@ -24,9 +30,10 @@ function generatePassword(){
   console.log("hey nice click")
 
   var password = "";
-  for(var i = 0; i < characterLength; i++)
+  for(var i = 0; i < characterLength; i++) {
     var randomIndex = Math.floor(Math.random() * choiceArr.length)
     password += choiceArr[randomIndex]
+  }
     return password;
 }
 // Add event listener to generate button
